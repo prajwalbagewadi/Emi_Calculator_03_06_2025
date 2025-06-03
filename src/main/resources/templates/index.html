@@ -1,58 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>EMI Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-        }
-
-        .container {
-            border: 2px solid #000;
-            border-radius: 10px;
-            padding: 25px;
-            max-width: 400px;
-            margin: 50px auto;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #000000;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-        }
-
-        input[type="number"], input[type="range"] {
-            width: 100%;
-            margin-top: 5px;
-        }
-
-        span {
-            font-weight: normal;
-            color: #444;
-        }
-    </style>
+    <title>EMI Calculator</title>     
 </head>
 <body>
-    <div class="container">
-        <h2>EMI Calculator</h2>
-
-        <label>Loan Amount (₹):</label>
-        <input type="number" id="price" value="180516">
-
-        <label>Down Payment (₹): <span id="dpVal">9025</span></label>
-        <input type="range" id="downPayment" min="0" max="180516" value="9025">
-
-        <label>Tenure (Years): <span id="tenureVal">3</span></label>
-        <input type="range" id="tenure" min="1" max="7" value="3">
-
-        <label>Interest Rate (%): <span id="interestVal">10</span></label>
-        <input type="range" id="interest" min="5" max="20" value="10">
-    </div>
+<form action="/cal" method="post">
+	<input type="text" name="loanAmt"
+		placeholder="Enter Loan Amount"/>
+	<input type="submit"/>
+</form>
+	<h1>Loan Amount:<span th:text="${loanamt}"></span></h1>
+</body>
+</html>
